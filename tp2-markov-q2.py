@@ -61,6 +61,10 @@ def calculateSum0(w, i, j):
     sum0 = []
     # calculate sum0
     # action = w
+    u0 = 0
+    u1 = 0
+    u2 = 0
+    s0 = 0
     wall = 99
     if w.w[i*w.L+j-w.L] == wall:  # wall to up
         u0 = w.w[i*w.L+j]
@@ -74,8 +78,13 @@ def calculateSum0(w, i, j):
         u2 = w.w[i*w.L+j]
     else:
         u2 = w.w[i*w.L+j-1]
+
     s0 = 0.8 * u0 + 0.1*u1+0.1*u2
     # action = a
+    u0 = 0
+    u1 = 0
+    u2 = 0
+    s1 = 0
     if w.w[i*w.L+j-1] == wall:  # wall to left
         u0 = w.w[i*w.L+j]
     else:
@@ -83,13 +92,17 @@ def calculateSum0(w, i, j):
     if w.w[i*w.L+j+w.L] == wall:  # wall to down
         u1 = w.w[i*w.L+j]
     else:
-        u1 = w.w[i*w.L+w.L]
+        u1 = w.w[i*w.L+j+w.L]
     if w.w[i*w.L+j-w.L] == wall:  # wall to up
         u2 = w.w[i*w.L+j]
     else:
         u2 = w.w[i*w.L+j-w.L]
     s1 = 0.8 * u0 + 0.1*u1+0.1*u2
     # action = s
+    u0 = 0
+    u1 = 0
+    u2 = 0
+    s2 = 0
     if w.w[i*w.L+j+w.L] == wall:  # wall to down
         u0 = w.w[i*w.L+j]
     else:
@@ -104,6 +117,10 @@ def calculateSum0(w, i, j):
         u2 = w.w[i*w.L+j-1]
     s2 = 0.8 * u0 + 0.1*u1+0.1*u2
     # action =d
+    u0 = 0
+    u1 = 0
+    u2 = 0
+    s3 = 0
     if w.w[i*w.L+j+1] == wall:  # wall to right
         u0 = w.w[i*w.L+j]
     else:
@@ -111,7 +128,7 @@ def calculateSum0(w, i, j):
     if w.w[i*w.L+j-w.L] == wall:  # wall to up
         u1 = w.w[i*w.L+j]
     else:
-        u1 = w.w[i*w.L-w.L]
+        u1 = w.w[i*w.L+j-w.L]
     if w.w[i*w.L+j+w.L] == wall:  # wall to down
         u2 = w.w[i*w.L+j]
     else:
